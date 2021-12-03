@@ -79,7 +79,7 @@ absl::Status CustomizeSelector::Update(Key key, double priority) {
 ItemSelector::KeyWithProbability CustomizeSelector::Sample(double priority) {
   REVERB_CHECK(!keys_.empty());
   const size_t index = absl::Uniform<size_t>(bit_gen_, 0, priority_to_indexs_[priority].size());
-  auto index_ = priority_to_indexs_[priority][index]
+  auto index_ = priority_to_indexs_[priority][index];
   return {keys_[index_], priority};
 
   // if (priority_to_indexs_.find(priority))
