@@ -40,7 +40,7 @@ TEST(CustomizeSelectorTest, ReturnValueSantiyChecks) {
   EXPECT_EQ(customize.Insert(123, 4).code(), absl::StatusCode::kInvalidArgument);
 
   // Keys with different priorities can be inserted correctly.
-  REVERB_EXPECT_OK(customize.Insert(123, 4));
+  REVERB_EXPECT_OK(customize.Insert(1234, 4));
   EXPECT_EQ(customize.Insert(123, 4).code(), absl::StatusCode::kInvalidArgument);
 
   REVERB_EXPECT_OK(customize.Insert(12, 4));
@@ -57,7 +57,7 @@ TEST(CustomizeSelectorTest, ReturnValueSantiyChecks) {
 
   // Existing keys can be updated and sampled.
   REVERB_EXPECT_OK(customize.Update(123, 5));
-  EXPECT_EQ(customize.Sample(4).key, 123);
+  EXPECT_EQ(customize.Sample(3).key, 122);
 
   // Existing keys cannot be deleted twice.
   REVERB_EXPECT_OK(customize.Delete(123));

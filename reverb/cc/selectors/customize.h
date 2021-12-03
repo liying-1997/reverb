@@ -37,11 +37,11 @@ class CustomizeSelector : public ItemSelector {
 
   absl::Status Update(Key key, double priority) override;
 
-  KeyWithProbability Sample() override;
+  // KeyWithProbability Sample() override;
   KeyWithProbability Sample(double priority) override;
   void Clear() override;
 
-  KeyDistributionOptions options() const override;
+  // KeyDistributionOptions options() const override;
 
   std::string DebugString() const override;
 
